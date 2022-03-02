@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 3454340}
   m_Layer: 0
   m_Name: Neptune
-  m_TagString: Untagged
+  m_TagString: Celestial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,7 +155,7 @@ Transform:
   m_LocalScale: {x: 0.0356, y: 0.0356, z: 0.0356}
   m_Children: []
   m_Father: {fileID: 55395130}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3454340
 Rigidbody:
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 55395131}
   m_Layer: 0
   m_Name: Sun
-  m_TagString: Untagged
+  m_TagString: Celestial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -264,10 +264,10 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 55395125}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 1e+9
   m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_AngularDrag: 0
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -345,7 +345,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.39e+9, y: 1.39e+9, z: 1.39e+9}
   m_Children:
-  - {fileID: 1255363981}
   - {fileID: 1629826793}
   - {fileID: 330305690}
   - {fileID: 968152282}
@@ -355,7 +354,7 @@ Transform:
   - {fileID: 1566859771}
   - {fileID: 3454339}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &55395131
 Light:
@@ -434,7 +433,7 @@ GameObject:
   - component: {fileID: 330305691}
   m_Layer: 0
   m_Name: Venus
-  m_TagString: Untagged
+  m_TagString: Celestial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -451,7 +450,7 @@ Transform:
   m_LocalScale: {x: 0.0087, y: 0.0087, z: 0.0087}
   m_Children: []
   m_Father: {fileID: 55395130}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &330305691
 Rigidbody:
@@ -546,7 +545,7 @@ GameObject:
   - component: {fileID: 632132734}
   m_Layer: 0
   m_Name: Jupiter
-  m_TagString: Untagged
+  m_TagString: Celestial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -563,7 +562,7 @@ Transform:
   m_LocalScale: {x: 0.10276, y: 0.10276, z: 0.10276}
   m_Children: []
   m_Father: {fileID: 55395130}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &632132734
 Rigidbody:
@@ -658,7 +657,7 @@ GameObject:
   - component: {fileID: 968152283}
   m_Layer: 0
   m_Name: Earth
-  m_TagString: Untagged
+  m_TagString: Celestial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -675,7 +674,7 @@ Transform:
   m_LocalScale: {x: 0.00917, y: 0.00917, z: 0.00917}
   m_Children: []
   m_Father: {fileID: 55395130}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &968152283
 Rigidbody:
@@ -766,6 +765,7 @@ GameObject:
   - component: {fileID: 1255363981}
   - component: {fileID: 1255363980}
   - component: {fileID: 1255363979}
+  - component: {fileID: 1255363982}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -806,7 +806,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 179
+  field of view: 90
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -831,12 +831,68 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255363978}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalRotation: {x: 0, y: 0.008726558, z: 0, w: 0.999962}
+  m_LocalPosition: {x: 4e+10, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 55395130}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 1, z: 0}
+--- !u!114 &1255363982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255363978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53962473d94b4034a824f4d951dcef40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panSpeed: 100000000
+--- !u!1 &1433894081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1433894083}
+  - component: {fileID: 1433894082}
+  m_Layer: 0
+  m_Name: SolarSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1433894082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433894081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7701d025aff7164fbcb9a1aafb5dc35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1433894083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433894081}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.00824237e+9, y: 147055730, z: -691502800}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1566859770
 GameObject:
@@ -853,7 +909,7 @@ GameObject:
   - component: {fileID: 1566859772}
   m_Layer: 0
   m_Name: Uranus
-  m_TagString: Untagged
+  m_TagString: Celestial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -870,7 +926,7 @@ Transform:
   m_LocalScale: {x: 0.03674, y: 0.03674, z: 0.03674}
   m_Children: []
   m_Father: {fileID: 55395130}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1566859772
 Rigidbody:
@@ -1058,7 +1114,7 @@ GameObject:
   - component: {fileID: 1629826794}
   m_Layer: 0
   m_Name: Mercury
-  m_TagString: Untagged
+  m_TagString: Celestial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1071,11 +1127,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629826792}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.51, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 0.00351, y: 0.00351, z: 0.00351}
   m_Children: []
   m_Father: {fileID: 55395130}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1629826794
 Rigidbody:
@@ -1170,7 +1226,7 @@ GameObject:
   - component: {fileID: 1757933057}
   m_Layer: 0
   m_Name: Saturn
-  m_TagString: Untagged
+  m_TagString: Celestial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1187,7 +1243,7 @@ Transform:
   m_LocalScale: {x: 0.08663, y: 0.08663, z: 0.08663}
   m_Children: []
   m_Father: {fileID: 55395130}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1757933057
 Rigidbody:
@@ -1282,7 +1338,7 @@ GameObject:
   - component: {fileID: 1769532007}
   m_Layer: 0
   m_Name: Mars
-  m_TagString: Untagged
+  m_TagString: Celestial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1299,7 +1355,7 @@ Transform:
   m_LocalScale: {x: 0.00488, y: 0.00488, z: 0.00488}
   m_Children: []
   m_Father: {fileID: 55395130}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1769532007
 Rigidbody:
