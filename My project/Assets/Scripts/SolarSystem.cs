@@ -79,7 +79,7 @@ public class SolarSystem : MonoBehaviour
         foreach(Planet p1 in planetArray){
             foreach(Planet p2 in planetArray){
                 if (!p1.Equals(p2)){
-                    float r = Vector3.Distance(p1.gObject.transform.position, p2.gObject.transform.position);
+                    float r = Vector3.Distance(p1.getPosition(), p2.getPosition());
                     p1.gObject.transform.LookAt(p2.gObject.transform);
 
                     p1.gObject.GetComponent<Rigidbody>().velocity += p1.gObject.transform.right * Mathf.Sqrt((G*p2.mass) / r); 
@@ -87,7 +87,7 @@ public class SolarSystem : MonoBehaviour
             } 
             //Omloppsbana
             
-            p1.gObject.GetComponent<Rigidbody>().velocity = Quaternion.AngleAxis(p1.Inclination, Vector3.left) * p1.gObject.GetComponent<Rigidbody>().velocity;
+            p1.gObject.GetComponent<Rigidbody>().velocity = Quaternion.AngleAxis(p1.Inclination, Vector3.left) * p1.getVelocity();
             /*
             Vector3 direction = new Vector3(0.0f,0.0f,orbitalInclination[counter]).normalized;
             
@@ -129,22 +129,4 @@ public class SolarSystem : MonoBehaviour
         }
 
     }
-    //värdelös
-    void Rotation(){
-        foreach(GameObject planet1 in celestials){
-            int counter = 1;
-            if(planet1.Equals(celestials[0])){
-                
-                planet1.transform.Rotate(new Vector3(0, rotateSpeed, 0) * Time.deltaTime);
-            }
-            else{
-                //planet1.transform.Rotate((Vector3(0.0f, 1.0f, 0.0f) * Time.deltaTime), Space.Self);
-                planet1.transform.Rotate(new Vector3(0, EquatorialRotationV[counter], 0) * Time.deltaTime);
-                counter ++;
-            }
-
-            //planet1.transform.Rotate(new Vector3(0, rotateSpeed, 0) * Time.deltaTime);
-        }
-    }
-    
 }
