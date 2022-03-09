@@ -64,12 +64,12 @@ public class CameraMovement : MonoBehaviour
         }
 
         // Rotate the camera up and down
-        if (Input.GetKey(KeyCode.Alpha1))
+        if (Input.GetKey(KeyCode.R))
         {
             rX = -rotationSpeed;
         }
 
-        if (Input.GetKey(KeyCode.Alpha2))
+        if (Input.GetKey(KeyCode.F))
         {
             rX = rotationSpeed;
         }
