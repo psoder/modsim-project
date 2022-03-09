@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    
+
     public float panSpeed = 20f;
 
     // Start is called before the first frame update
@@ -13,27 +13,67 @@ public class CameraMovement : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-      Vector3 pos = transform.position;
+        // Moves the camera
+        float x = 0, y = 0, z = 0;
+        if (Input.GetKey(KeyCode.S))
+        {
+            z = panSpeed;
+        }
 
-      if (Input.GetKey("s")  ){
-          pos.z += panSpeed * Time.deltaTime;
-      }
-      
-      if (Input.GetKey("w") ){
-          pos.z -= panSpeed * Time.deltaTime;
-      } 
-      if (Input.GetKey("a")){
-          pos.x += panSpeed * Time.deltaTime;
-      } 
-      if (Input.GetKey("d") ){
-          pos.x -= panSpeed * Time.deltaTime;
-      } 
-      
+        if (Input.GetKey(KeyCode.W))
+        {
+            z = panSpeed;
+        }
 
-      transform.position = pos;
+        if (Input.GetKey(KeyCode.A))
+        {
+            x = panSpeed;
+        }
 
+        if (Input.GetKey(KeyCode.D))
+        {
+            x = panSpeed;
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            y = panSpeed;
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            y = panSpeed;
+        }
+
+        transform.Translate(new Vector3(x, y, z));
+
+
+        // Rotate the camera side to side
+        float rX = 0, rY = 0, rZ = 0;
+        float rotationSpeed = 2;
+        if (Input.GetKey(KeyCode.Q))
+        {
+            rY = -rotationSpeed;
+        }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            rY = rotationSpeed;
+        }
+
+        // Rotate the camera up and down
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            rX = -rotationSpeed;
+        }
+
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            rX = rotationSpeed;
+        }
+
+        transform.Rotate(new Vector3(rX, rY, rZ));
     }
 }
