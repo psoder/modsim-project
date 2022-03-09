@@ -19,7 +19,7 @@ public class CameraMovement : MonoBehaviour
         float x = 0, y = 0, z = 0;
         if (Input.GetKey(KeyCode.S))
         {
-            z = panSpeed;
+            z = -panSpeed;
         }
 
         if (Input.GetKey(KeyCode.W))
@@ -29,7 +29,7 @@ public class CameraMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            x = panSpeed;
+            x = -panSpeed;
         }
 
         if (Input.GetKey(KeyCode.D))
@@ -44,7 +44,7 @@ public class CameraMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            y = panSpeed;
+            y = -panSpeed;
         }
 
         transform.Translate(new Vector3(x, y, z));
