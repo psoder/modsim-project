@@ -28,11 +28,6 @@ public class Planet
         mass = gObject.GetComponent<Rigidbody>().mass;
     }
 
-    public Vector3 getVelocity()
-    {
-        return gObject.GetComponent<Rigidbody>().velocity;
-    }
-
     public Vector3 getPosition()
     {
         return gObject.transform.position;
