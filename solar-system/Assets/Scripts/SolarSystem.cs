@@ -53,11 +53,11 @@ public class SolarSystem : MonoBehaviour
         //FIPPEL DIRECTION
         foreach (Planet p in planets)
         {
-            Vector3 yaaa = p.gObject.GetComponent<Rigidbody>().velocity.normalized;
-            Vector3 naaa = (planets[0].getPosition() - p.getPosition()).normalized;
-            Vector3 wiee = Vector3.Cross(naaa,yaaa);
-            wiee = Quaternion.AngleAxis(90 - p.Tilt, Vector3.left) * wiee;
-            p.gObject.transform.rotation = Quaternion.LookRotation(wiee);
+            Vector3 v_direction = p.gObject.GetComponent<Rigidbody>().velocity.normalized;
+            Vector3 v_directionSun = (planets[0].getPosition() - p.getPosition()).normalized;
+            Vector3 crossV = Vector3.Cross(v_directionSun,v_direction);
+            crossV = Quaternion.AngleAxis(90 + p.Tilt, Vector3.left) * crossV;
+            p.gObject.transform.rotation = Quaternion.LookRotation(crossV);
 
         }
     }
