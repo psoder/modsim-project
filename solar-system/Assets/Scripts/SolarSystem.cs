@@ -24,7 +24,18 @@ public class SolarSystem : MonoBehaviour
             new Planet(GameObject.Find("Saturn"), 9.68f, 9.87f, 23.44f, 5.51f),
             new Planet(GameObject.Find("Uranus"), 6.80f, 2.59f, 97.77f, 6.48f),
             new Planet(GameObject.Find("Neptune"), 5.43f, 2.68f, 28.32f, 6.43f)
+            
         };
+        
+        foreach(Planet p in planets){
+            if (!p.gObject.name.Equals("Sun")){
+                p.gObject.GetComponent<TrailRenderer>().enabled=false;
+                p.gObject.transform.position = new Vector3(p.getPosition().x,
+                    Mathf.Tan((p.Inclination / 360.0f) * 2.0f * (float)Math.PI) * Vector3.Distance(p.getPosition(), planets[0].getPosition()),0);
+
+                p.gObject.GetComponent<TrailRenderer>().enabled=true;
+            }
+        }
 
         // Initalize Velocity
         foreach (Planet p1 in planets)
@@ -38,21 +49,20 @@ public class SolarSystem : MonoBehaviour
                     p1.gObject.GetComponent<Rigidbody>().velocity += p1.gObject.transform.right * Mathf.Sqrt((G * p2.mass) / r);
                 }
             }
-            //Omloppsbana
-
-            p1.gObject.GetComponent<Rigidbody>().velocity = Quaternion.AngleAxis(p1.Inclination, Vector3.left) * p1.gObject.GetComponent<Rigidbody>().velocity;
-            /*
-            Vector3 direction = new Vector3(0.0f,0.0f,orbitalInclination[counter]).normalized;
-            
-            float magni = planet1.GetComponent<Rigidbody>().velocity.magnitude;
-            planet1.GetComponent<Rigidbody>().velocity = magni * direction;
-            print(planet1.GetComponent<Rigidbody>().velocity.normalized);
-            */
         }
-        //print(planets[1].getVelocity());
+        //FIPPEL DIRECTION
+        foreach (Planet p in planets)
+        {
+            Vector3 yaaa = p.gObject.GetComponent<Rigidbody>().velocity.normalized;
+            Vector3 naaa = (planets[0].getPosition() - p.getPosition()).normalized;
+            Vector3 wiee = Vector3.Cross(naaa,yaaa);
+            wiee = Quaternion.AngleAxis(90 - p.Tilt, Vector3.left) * wiee;
+            p.gObject.transform.rotation = Quaternion.LookRotation(wiee);
+
+        }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         // Simulate Gravity
         foreach (Planet p1 in planets)
@@ -68,16 +78,12 @@ public class SolarSystem : MonoBehaviour
             }
         }
 
-        // Rotation of planets
-        foreach (Planet p in planets)
-        {
-            float pi = (float)Math.PI;
-            float x = Mathf.Sin((p.Tilt / 360.0f) * 2.0f * pi);
-            float y = Mathf.Cos((p.Tilt / 360.0f) * 2.0f * pi);
-
-            Vector3 Angle = new Vector3(x, y, 0.0f).normalized;
-            p.gObject.transform.Rotate(Angle * p.Inclination * Time.deltaTime);
-
+        // rotation along the y axis, which is calculated in the start function (perpendicular to the ). 
+        foreach (Planet p in planets){
+            p.gObject.transform.Rotate(0, p.EqVelocity, 0, Space.Self);
         }
+
+        
     }
+    
 }

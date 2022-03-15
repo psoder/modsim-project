@@ -23,6 +23,7 @@ public class Planet
         Inclination = inclination;
 
         Velocity = velocity;
+        EqVelocity = eqVelocity;
 
         Tilt = tilt;
         mass = gObject.GetComponent<Rigidbody>().mass;
