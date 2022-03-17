@@ -24,8 +24,8 @@ public class SolarSystem : MonoBehaviour
             new Planet(GameObject.Find("Saturn"), 9.68f, 9.87f, 23.44f, 5.51f),
             new Planet(GameObject.Find("Uranus"), 6.80f, 2.59f, 97.77f, 6.48f),
             new Planet(GameObject.Find("Neptune"), 5.43f, 2.68f, 28.32f, 6.43f)
-            
         };
+
         foreach (Planet p1 in planets)
         {
             foreach (Planet p2 in planets)
@@ -38,29 +38,29 @@ public class SolarSystem : MonoBehaviour
                 }
             }
         }
+
         //FIPPEL DIRECTION
         foreach (Planet p in planets)
         {
             Vector3 v_direction = p.gObject.GetComponent<Rigidbody>().velocity.normalized;
             Vector3 v_directionSun = (planets[0].getPosition() - p.getPosition()).normalized;
-            Vector3 crossV = Vector3.Cross(v_directionSun,v_direction);
+            Vector3 crossV = Vector3.Cross(v_directionSun, v_direction);
             crossV = Quaternion.AngleAxis(90 - p.Tilt, Vector3.left) * crossV;
             p.gObject.transform.rotation = Quaternion.LookRotation(crossV);
-
         }
-        // Move the planets into the right trajectory.
-        foreach(Planet p in planets){
-            if (!p.gObject.name.Equals("Sun")){
-                p.gObject.GetComponent<TrailRenderer>().enabled=false;
-                p.gObject.transform.position = new Vector3(p.getPosition().x,
-                    Mathf.Tan((p.Inclination / 360.0f) * 2.0f * (float)Math.PI) * Vector3.Distance(p.getPosition(), planets[0].getPosition()),0);
 
-                p.gObject.GetComponent<TrailRenderer>().enabled=true;
+        // Move the planets into the right trajectory.
+        foreach (Planet p in planets)
+        {
+            if (!p.gObject.name.Equals("Sun"))
+            {
+                p.gObject.GetComponent<TrailRenderer>().enabled = false;
+                p.gObject.transform.position = new Vector3(p.getPosition().x,
+                    Mathf.Tan((p.Inclination / 360.0f) * 2.0f * (float)Math.PI) * Vector3.Distance(p.getPosition(), planets[0].getPosition()), 0);
+
+                p.gObject.GetComponent<TrailRenderer>().enabled = true;
             }
         }
-
-        // Initalize Velocity
-        
     }
 
     void FixedUpdate()
@@ -80,11 +80,12 @@ public class SolarSystem : MonoBehaviour
         }
 
         // rotation along the y axis, which is calculated in the start function (perpendicular to the ). 
-        foreach (Planet p in planets){
+        foreach (Planet p in planets)
+        {
             p.gObject.transform.Rotate(0, p.EqVelocity, 0, Space.Self);
         }
 
-        
+
     }
-    
+
 }
