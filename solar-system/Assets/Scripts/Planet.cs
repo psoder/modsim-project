@@ -4,7 +4,7 @@ public class Planet
 {
     public GameObject gObject;
     public float Velocity; // Orbial velocity in km/s 
-    public float EqVelocity; // Equatorial velocity in km/s 
+    public float Rotation; // Equatorial velocity in km/s 
     public float Inclination; // Orbital inclatnation to the suns equator in degrees
     public float Tilt; // Axial tilt to orbit in degrees 
     public float mass;
@@ -14,16 +14,16 @@ public class Planet
     /// </sumary>
     /// <param name="gameObject">The Unity Game Object</param>
     /// <param name="velocity">Orbial velocity in km/s </param>
-    /// <param name="eqVelocity">Equatorial velocity in km/s </param>
+    /// <param name="rotation">No. degrees the planet rotates per second</param>
     /// <param name="tilt">Axial tilt to orbit in degrees </param>
     /// <param name="inclination">Orbital inclatnation to the suns equator in degrees</param>
-    public Planet(GameObject gameObject, float velocity, float eqVelocity, float tilt, float inclination)
+    public Planet(GameObject gameObject, float velocity, float rotation, float tilt, float inclination)
     {
         gObject = gameObject;
         Inclination = inclination;
 
         Velocity = velocity;
-        EqVelocity = eqVelocity;
+        Rotation = rotation;
 
         Tilt = tilt;
         mass = gObject.GetComponent<Rigidbody>().mass;
