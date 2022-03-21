@@ -6,6 +6,11 @@
 | Pontus Söderlund | psoder@kth.se |
 | Michael Morales Sundstedt | micms@kth.se |
 
+## Grade
+We're aiming for a pass, but we both believe that this question is pretty stupid
+since the grade should be based on what we've done and not what grade we're 
+aiming for.
+
 ## Simulating Orbital Mechanics
 
 Not a Master Thesis Proposal
