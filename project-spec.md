@@ -32,7 +32,7 @@ This project will be a 3D implementation of the solar system complete with all
 the major celestial bodies, i.e. one star, eight planets and maybe a moon or two.
 See Figure 1.
 
-![The Solar System](./images/solar-system.png)
+![image](https://user-images.githubusercontent.com/52171526/159247128-05a51689-1d46-474a-9245-4c2b32992a23.png)
 Figure 1: The Solar System
 
 The celestial objects will be implemented as spheres of different sizes with
